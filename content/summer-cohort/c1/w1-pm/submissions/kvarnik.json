@@ -1,0 +1,8 @@
+{
+  "githubHandle": "kvarnik",
+  "repoUrl": "https://github.com/kvarnik/cursor-boston",
+  "loomUrl": "https://www.loom.com/share/replace-with-your-2-minute-walkthrough",
+  "liveUrl": "https://kvarnik.github.io/cursor-boston/",
+  "pitch": "Markdown tasks + swim lanes by workstream + Kanban columns + done workload chart; GitHub Actions builds pm-site to Pages. Agents use AGENTS.md + npm run pm:ls to claim work.",
+  "competeForWin": true
+}

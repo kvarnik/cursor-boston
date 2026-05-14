@@ -1,0 +1,8 @@
+---
+description: File-based PM — claim tasks by editing pm/tasks frontmatter
+globs:
+  - pm/tasks/**
+  - pm/streams.md
+---
+
+Claim: `status: in_progress`, set `assignee`, bump `updatedAt` (ISO UTC). Done: `status: done`, set `completedBy`, `completedAt`, bump `updatedAt`. Streams: edit table in `pm/streams.md` only; tasks use `stream: <id>`. See `AGENTS.md`.

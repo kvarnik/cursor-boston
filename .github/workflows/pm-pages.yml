@@ -1,0 +1,60 @@
+# Copyright (C) 2026 Cursor Boston
+# SPDX-License-Identifier: GPL-3.0-only
+#
+# Build the Markdown PM dashboard (pm-site) and deploy to GitHub Pages.
+
+name: PM dashboard Pages
+
+on:
+  push:
+    branches: ["**"]
+    paths:
+      - "pm/**"
+      - "pm-site/**"
+      - "scripts/pm-*.mjs"
+      - ".github/workflows/pm-pages.yml"
+
+concurrency:
+  group: pm-pages-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: pm-site/package-lock.json
+
+      - name: Generate data + build site
+        env:
+          VITE_BASE: /cursor-boston/
+        run: |
+          node scripts/pm-build.mjs
+          node scripts/pm-validate.mjs
+          npm ci --prefix pm-site
+          npm run build --prefix pm-site
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: pm-site/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

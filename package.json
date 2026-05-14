@@ -69,7 +69,11 @@
     "prepare": "husky install",
     "postinstall": "node scripts/maybe-install-playwright.js",
     "add:gpl-headers": "node scripts/add-gpl-headers.js",
-    "analyze": "ANALYZE=true next build"
+    "analyze": "ANALYZE=true next build",
+    "pm:build": "node scripts/pm-build.mjs && npm run build --prefix pm-site",
+    "pm:dev": "node scripts/pm-build.mjs && npm run dev --prefix pm-site",
+    "pm:ls": "node scripts/pm-ls.mjs",
+    "pm:validate": "node scripts/pm-validate.mjs"
   },
   "dependencies": {
     "@asteasolutions/zod-to-openapi": "^7.3.0",
