@@ -5,4 +5,4 @@ globs:
   - pm/streams.md
 ---
 
-Claim: `status: in_progress`, set `assignee`, bump `updatedAt` (ISO UTC). Done: `status: done`, set `completedBy`, `completedAt`, bump `updatedAt`. Streams: edit table in `pm/streams.md` only; tasks use `stream: <id>`. See `AGENTS.md`.
+Claim: `status: in_progress`, set `assignee`, bump `updatedAt` (ISO UTC). Done: `status: done`, set `completedBy`, `completedAt`, bump `updatedAt`. Commit: `git commit -s`. Streams: edit table in `pm/streams.md` only; tasks use `stream: <id>`. See `AGENTS.md`.

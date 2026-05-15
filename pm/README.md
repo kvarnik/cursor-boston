@@ -29,6 +29,17 @@ Source files under `pm/` feed a static dashboard in `pm-site/`. GitHub Actions b
 
 - Aggregates **done** tasks by `completedBy`. Missing `completedBy` → **unknown** in the UI.
 
+## Commits
+
+This repo requires [DCO sign-off](https://github.com/rogerSuperBuilderAlpha/cursor-boston/blob/develop/DCO.md). After editing `pm/` files:
+
+```bash
+git add pm/
+git commit -s -m "pm: TASK-00001 update status"
+```
+
+Cohort submission PRs to `c1w1pm-submission` use the same flag, e.g. `git commit -s -m "submission: kvarnik c1w1pm placeholder"`.
+
 ## Scripts (repo root)
 
 - `npm run pm:ls` — one line per non-done task (`id`, `stream`, `status`, `title`).

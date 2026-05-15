@@ -4,6 +4,7 @@
 2. Open `pm/tasks/<id>.md`. Set `status: in_progress`, set `assignee` (your GitHub handle or `cursor-agent`), bump `updatedAt` (ISO-8601 UTC).
 3. Do the work in the repo; use the task body for acceptance criteria.
 4. When finished: `status: review` or `done`; for `done`, set `completedBy` + `completedAt` and bump `updatedAt`.
+5. Commit with DCO sign-off: `git commit -s -m "pm: <task-id> short description"`.
 
 **Statuses:** `backlog` → `ready` → `in_progress` → `review` → `done`
 
